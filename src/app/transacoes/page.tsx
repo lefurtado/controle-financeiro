@@ -7,10 +7,20 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { DataTable } from "@/components/ui/data-table";
 import { PlusIcon } from "lucide-react";
-import Link from "next/link";
 
 async function getData(): Promise<Transaction[]> {
   // Fetch data from your API here.
@@ -125,12 +135,39 @@ export default async function Estoque() {
       </Breadcrumb>
       <div className="flex items-center justify-between mb-4">
         <h2 className="mt-5 text-4xl font-semibold">Transações</h2>
-        <Link href="/estoque/novo-item">
-          <Button>
-            <PlusIcon className="mr-2 h-4 w-4" />
-            Nova transação
+        <Dialog>
+          <Button asChild>
+            <DialogTrigger>
+              <PlusIcon className="mr-2 h-4 w-4" />
+              Nova transação
+            </DialogTrigger>
           </Button>
-        </Link>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>Edit profile</DialogTitle>
+              <DialogDescription>
+                Make changes to your profile here. Click save when you're done.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="name" className="text-right">
+                  Name
+                </Label>
+                <Input id="name" value="Pedro Duarte" className="col-span-3" />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="username" className="text-right">
+                  Username
+                </Label>
+                <Input id="username" value="@peduarte" className="col-span-3" />
+              </div>
+            </div>
+            <DialogFooter>
+              <Button type="submit">Save changes</Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
       <DataTable columns={columns} data={data} />
     </div>
