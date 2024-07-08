@@ -133,7 +133,7 @@ export default async function Estoque() {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex flex-col sm:items-center sm:flex-row justify-between mb-4">
         <h2 className="mt-5 text-4xl font-semibold">Transações</h2>
         <Dialog>
           <Button asChild>
