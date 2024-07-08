@@ -72,7 +72,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <Card className="p-8 rounded-2xl shadow-md">
+      <Card className="sm:p-8 p-2 rounded-2xl shadow-md">
         <div className="flex items-center py-4">
           <Input
             placeholder="Filtrar por nome ou código..."

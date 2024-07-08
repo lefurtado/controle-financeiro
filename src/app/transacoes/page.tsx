@@ -142,7 +142,7 @@ export default async function Estoque() {
               Nova transação
             </DialogTrigger>
           </Button>
-          <DialogContent className="sm:max-w-[425px]">
+          <DialogContent className="sm:max-w-[425px] max-w-xs rounded-xl">
             <DialogHeader>
               <DialogTitle>Edit profile</DialogTitle>
               <DialogDescription>
