@@ -17,8 +17,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { DataTable } from "@/components/ui/data-table";
 import { PlusIcon } from "lucide-react";
 import FormTransaction from "@/components/core/form-transaction";
@@ -151,9 +149,6 @@ export default async function Estoque() {
               </DialogDescription>
             </DialogHeader>
             <FormTransaction />
-            <DialogFooter>
-              <Button type="submit">Save changes</Button>
-            </DialogFooter>
           </DialogContent>
         </Dialog>
       </div>
