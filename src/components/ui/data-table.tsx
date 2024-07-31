@@ -21,12 +21,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
@@ -80,32 +74,6 @@ export function DataTable<TData, TValue>({
             onChange={(e) => setFiltering(e.target.value)}
             className="max-w-sm"
           />
-          <div className="ml-auto flex gap-2">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline">Colunas</Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                {table
-                  .getAllColumns()
-                  .filter((column) => column.getCanHide())
-                  .map((column) => {
-                    return (
-                      <DropdownMenuCheckboxItem
-                        key={column.id}
-                        className="capitalize"
-                        checked={column.getIsVisible()}
-                        onCheckedChange={(value) =>
-                          column.toggleVisibility(!!value)
-                        }
-                      >
-                        {column.id}
-                      </DropdownMenuCheckboxItem>
-                    );
-                  })}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
         </div>
         <div className="rounded-md border">
           <Table>

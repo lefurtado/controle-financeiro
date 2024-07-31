@@ -7,19 +7,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import { DataTable } from "@/components/ui/data-table";
-import { PlusIcon } from "lucide-react";
-import FormTransaction from "@/components/core/form-transaction";
+import DialogNewTransaction from "@/components/core/dialog-new-transaction";
 
 async function getData(): Promise<Transaction[]> {
   // Fetch data from your API here.
@@ -132,26 +121,7 @@ export default async function Estoque() {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <div className="flex flex-col sm:items-center sm:flex-row justify-between mb-4">
-        <h2 className="mt-5 text-4xl font-semibold">Transações</h2>
-        <Dialog>
-          <Button asChild>
-            <DialogTrigger>
-              <PlusIcon className="mr-2 h-4 w-4" />
-              Nova transação
-            </DialogTrigger>
-          </Button>
-          <DialogContent className="sm:max-w-[425px] max-w-xs rounded-xl">
-            <DialogHeader>
-              <DialogTitle>Adicionar transação</DialogTitle>
-              <DialogDescription>
-                Formulário para adicionar nova transação
-              </DialogDescription>
-            </DialogHeader>
-            <FormTransaction />
-          </DialogContent>
-        </Dialog>
-      </div>
+      <DialogNewTransaction />
       <DataTable columns={columns} data={data} />
     </div>
   );
